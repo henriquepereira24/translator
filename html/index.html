@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainbow Color Translator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        select {
+            padding: 5px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .translation-result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rainbow Color Translator</h1>
+    <label for="colorSelect">Select a color:</label>
+    <select id="colorSelect">
+        <option value="vermelho">Vermelho (Red)</option>
+        <option value="laranja">Laranja (Orange)</option>
+        <option value="amarelo">Amarelo (Yellow)</option>
+        <option value="verde">Verde (Green)</option>
+        <option value="azul">Azul (Blue)</option>
+        <option value="anil">Anil (Indigo)</option>
+        <option value="violeta">Violeta (Violet)</option>
+    </select>
+    <button onclick="translateColors()">Translate</button>
+    <div class="translation-result" id="translationResult"></div>
+
+    <script>
+        function translateColors() {
+            const colorSelect = document.getElementById("colorSelect");
+            const selectedColor = colorSelect.value;
+            const translationResult = document.getElementById("translationResult");
+
+            const translations = {
+                "vermelho": {
+                    "english": "Red",
+                    "french": "Rouge"
+                },
+                "laranja": {
+                    "english": "Orange",
+                    "french": "Orange"
+                },
+                "amarelo": {
+                    "english": "Yellow",
+                    "french": "Jaune"
+                },
+                "verde": {
+                    "english": "Green",
+                    "french": "Vert"
+                },
+                "azul": {
+                    "english": "Blue",
+                    "french": "Bleu"
+                },
+                "anil": {
+                    "english": "Indigo",
+                    "french": "Indigo"
+                },
+                "violeta": {
+                    "english": "Violet",
+                    "french": "Violet"
+                }
+            };
+
+            const englishTranslation = translations[selectedColor]["english"];
+            const frenchTranslation = translations[selectedColor]["french"];
+
+            translationResult.innerHTML = `
+                <p>English: ${englishTranslation}</p>
+                <p>French: ${frenchTranslation}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
